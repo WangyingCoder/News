@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="detail"
+            type="com.cpst.news.vm.GankViewModel"/>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:contentInsetStart="0dp"
+            android:background="@color/colorPrimary"
+            app:layout_scrollFlags="scroll|enterAlways">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/iv_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/ic_back"/>
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/iv_back"
+                    android:ellipsize="end"
+                    android:paddingRight="18dp"
+                    android:singleLine="true"
+                    android:text="标题"
+                    android:textColor="@color/colorTextWhite"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+            </RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+        <com.cpst.news.view.StatusLayout
+            android:id="@+id/layout_status"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v4.widget.SwipeRefreshLayout
+                android:id="@+id/layout_refresh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.cpst.news.view.RefreshWebView
+                    android:id="@+id/web"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/btn_share"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|bottom"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/ic_share"
+                    app:backgroundTint="@color/colorAccent"
+                    app:borderWidth="0dp"
+                    app:pressedTranslationZ="6dp"
+                    app:rippleColor="#555555"/>
+            </android.support.v4.widget.SwipeRefreshLayout>
+
+        </com.cpst.news.view.StatusLayout>
+    </LinearLayout>
+</layout>
